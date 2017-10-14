@@ -7,7 +7,7 @@ var wz='http://images.baidu.com/';
 
 
 var strHtml='';
-
+//解析网址
 http.get(wz,(res)=>{
 	res.on('data',(chunk)=>{
 		strHtml+=chunk;
@@ -20,6 +20,8 @@ http.get(wz,(res)=>{
 			imgdata.push($(item).attr('src'))
 			
 		});
+
+		//解析图片并保存
 		function saveImage(imgdata){
 			https.get(imgdata,(res)=>{
 				res.setEncoding('binary');
